@@ -37,7 +37,7 @@
                       supportedGhcVersions = [ "94" ];
                     };
                   languages.haskell.stack = pkgs.stack; # stack 2.9.1
-                  pre-commit.hooks.ormolu.enable = true;
+                  # pre-commit.hooks.ormolu.enable = true;
                 }
               ];
             };
