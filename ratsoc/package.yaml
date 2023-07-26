@@ -32,9 +32,33 @@ ghc-options:
 - -Wmissing-home-modules
 - -Wpartial-fields
 - -Wredundant-constraints
+- -Werror
+- -Wredundant-constraints
+- -fwarn-tabs
+
+default-extensions:
+- GHC2021  # https://ghc.gitlab.haskell.org/ghc/doc/users_guide/exts/control.html#extension-GHC2021
+- DataKinds
+- DefaultSignatures
+- DerivingStrategies
+- DerivingVia
+- FunctionalDependencies
+- LambdaCase
+- NoImplicitPrelude
+- NoMonomorphismRestriction
+- OverloadedStrings
+- PackageImports
+- QuasiQuotes
+- RecordWildCards
+- TemplateHaskell
+- TupleSections
+- TypeFamilies
+- ViewPatterns
 
 library:
   source-dirs: src
+  dependencies:
+    - relude
 
 executables:
   ratsoc-exe:
@@ -46,6 +70,8 @@ executables:
     - -with-rtsopts=-N
     dependencies:
     - ratsoc
+    - relude
+    - unliftio
 
 tests:
   ratsoc-test:
@@ -57,3 +83,9 @@ tests:
     - -with-rtsopts=-N
     dependencies:
     - ratsoc
+    - relude
+    - hspec
+    - hspec-expectations
+    - QuickCheck
+    - quickcheck-classes
+    - quickcheck-instances

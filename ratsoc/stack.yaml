@@ -2,5 +2,7 @@ resolver:
   url: https://raw.githubusercontent.com/commercialhaskell/stackage-snapshots/master/lts/21/4.yaml
 packages:
 - .
-nix:
-  enable: true
+system-ghc: true
+recommend-stack-upgrade: false
+# nix:
+#   enable: true

@@ -30,9 +30,28 @@ library
       Paths_ratsoc
   hs-source-dirs:
       src
-  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints
+  default-extensions:
+      GHC2021
+      DataKinds
+      DefaultSignatures
+      DerivingStrategies
+      DerivingVia
+      FunctionalDependencies
+      LambdaCase
+      NoImplicitPrelude
+      NoMonomorphismRestriction
+      OverloadedStrings
+      PackageImports
+      QuasiQuotes
+      RecordWildCards
+      TemplateHaskell
+      TupleSections
+      TypeFamilies
+      ViewPatterns
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -Werror -Wredundant-constraints -fwarn-tabs
   build-depends:
       base >=4.7 && <5
+    , relude
   default-language: Haskell2010
 
 executable ratsoc-exe
@@ -41,10 +60,30 @@ executable ratsoc-exe
       Paths_ratsoc
   hs-source-dirs:
       app
-  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -threaded -rtsopts -with-rtsopts=-N
+  default-extensions:
+      GHC2021
+      DataKinds
+      DefaultSignatures
+      DerivingStrategies
+      DerivingVia
+      FunctionalDependencies
+      LambdaCase
+      NoImplicitPrelude
+      NoMonomorphismRestriction
+      OverloadedStrings
+      PackageImports
+      QuasiQuotes
+      RecordWildCards
+      TemplateHaskell
+      TupleSections
+      TypeFamilies
+      ViewPatterns
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -Werror -Wredundant-constraints -fwarn-tabs -threaded -rtsopts -with-rtsopts=-N
   build-depends:
       base >=4.7 && <5
     , ratsoc
+    , relude
+    , unliftio
   default-language: Haskell2010
 
 test-suite ratsoc-test
@@ -54,8 +93,32 @@ test-suite ratsoc-test
       Paths_ratsoc
   hs-source-dirs:
       test
-  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -threaded -rtsopts -with-rtsopts=-N
+  default-extensions:
+      GHC2021
+      DataKinds
+      DefaultSignatures
+      DerivingStrategies
+      DerivingVia
+      FunctionalDependencies
+      LambdaCase
+      NoImplicitPrelude
+      NoMonomorphismRestriction
+      OverloadedStrings
+      PackageImports
+      QuasiQuotes
+      RecordWildCards
+      TemplateHaskell
+      TupleSections
+      TypeFamilies
+      ViewPatterns
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -Werror -Wredundant-constraints -fwarn-tabs -threaded -rtsopts -with-rtsopts=-N
   build-depends:
-      base >=4.7 && <5
+      QuickCheck
+    , base >=4.7 && <5
+    , hspec
+    , hspec-expectations
+    , quickcheck-classes
+    , quickcheck-instances
     , ratsoc
+    , relude
   default-language: Haskell2010
