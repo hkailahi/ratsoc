@@ -75,21 +75,21 @@ findBookByTitle lib title =
   HM.keys . HM.filterWithKey isMatchingTitle $ availableBooks lib
   where
     isMatchingTitle :: Book -> Int -> Bool
-    isMatchingTitle _ book = title == bookTitle book
+    isMatchingTitle book _ = title == bookTitle book
 
 findBookByAuthor :: Library -> Author -> [Book]
 findBookByAuthor lib author =
   HM.keys . HM.filterWithKey isMatchingAuthor $ availableBooks lib
   where
     isMatchingAuthor :: Book -> Int -> Bool
-    isMatchingAuthor _ book = author == bookAuthor book
+    isMatchingAuthor book _ = author == bookAuthor book
 
-findBookByISBN :: Library -> ISBN -> Book
+findBookByISBN :: Library -> ISBN -> [Book]
 findBookByISBN lib isbn =
   HM.keys . HM.filterWithKey isMatchingISBN $ availableBooks lib
   where
     isMatchingISBN :: Book -> Int -> Bool
-    isMatchingISBN _ book = isbn == bookIsbn book
+    isMatchingISBN book _ = isbn == bookIsbn book
 
 ---------------------------------------------------------------------------------------------------
 -- Patron Activities
