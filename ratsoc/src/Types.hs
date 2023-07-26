@@ -1,7 +1,7 @@
 module Types where
 
-import Relude
 import Data.Time.Clock.Compat
+import Relude
 
 ---------------------------------------------------------------------------------------------------
 -- Core Types
@@ -33,7 +33,7 @@ data Patron = Patron
 ---------------------------------------------------------------------------------------------------
 
 newtype BookTitle = BookTitle
-  { unBookTitle :: Text }
+  {unBookTitle :: Text}
   deriving stock (Eq, Show, Generic)
   deriving anyclass (Hashable)
 
@@ -47,20 +47,19 @@ newtype ISBN = ISBN
   deriving stock (Eq, Show, Generic)
   deriving anyclass (Hashable)
 
-data Availability =
-    Available
+data Availability
+  = Available
   | DueBy UTCTime
   deriving stock (Eq, Show, Generic)
   deriving anyclass (Hashable)
 
 newtype PatronName = PatronName
-  { unPatronName :: Text }
+  {unPatronName :: Text}
   deriving stock (Eq, Show, Generic)
   deriving anyclass (Hashable)
 
 -- Invariant: Unique across all library branches
 newtype CardNumber = CardNumber
-  { unCardNumber :: Int }
+  {unCardNumber :: Int}
   deriving stock (Eq, Show, Generic)
   deriving anyclass (Hashable)
-
