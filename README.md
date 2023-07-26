@@ -60,15 +60,15 @@ $ stack new ratsoc
 $ cd ratsoc
 ```
 
-* Modify `stack.yaml` to use nix-provided GHC compiler and enable nix integration - https://docs.haskellstack.org/en/stable/nix_integration/#enable-nix-integration
+* Modify `stack.yaml` to use nix-provided GHC compiler and ~~enable nix integration - https://docs.haskellstack.org/en/stable/nix_integration/#enable-nix-integration~~ NOTE: Disabled due to caching weirdness
 ```diff
   resolver:
     url: https://raw.githubusercontent.com/commercialhaskell/stackage-snapshots/master/lts/21/4.yaml
   packages:
   - .
 + system-ghc: true
-+ nix:
-+   enable: true
++ # nix:
++ #  enable: true
 ```
 
 * Build basic project
